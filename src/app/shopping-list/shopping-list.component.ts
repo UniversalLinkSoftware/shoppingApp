@@ -1,5 +1,6 @@
+import { Information } from './../common/info.model';
 import { Component, OnInit } from '@angular/core';
-import { Information } from '../common/info.model';
+
 
 @Component({
   selector: 'app-shopping-list',
@@ -12,6 +13,10 @@ export class ShoppingListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  onInfoAdded(info: Information) {
+    this.infos.push(info);
+
   }
 
 }
