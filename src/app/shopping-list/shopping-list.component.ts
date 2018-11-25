@@ -1,5 +1,6 @@
 import { Information } from './../common/info.model';
 import { Component, OnInit } from '@angular/core';
+import { ShoppingListService } from './shopping.service';
 
 
 @Component({
@@ -9,14 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListComponent implements OnInit {
 
-  infos: Information[]  = [new Information('Adidas', 39), new Information('Nike', 40) ];
-  constructor() { }
+  infos: Information[];
+  constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
-  }
-  onInfoAdded(info: Information) {
-    this.infos.push(info);
+this.infos = this.slService.getInformation();
+this.slService.infoChanged.subscribe(
+  (info: Information[]) => {this.infos = info; }
+  );
+  // onInfoAdded(info: Information) {
+  //   this.infos.push(info);
 
+ // }
   }
-
 }
