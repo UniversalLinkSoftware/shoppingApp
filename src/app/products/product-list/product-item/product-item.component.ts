@@ -10,13 +10,11 @@ import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
+  @Input() index: number;
  // @Output() productSelected = new EventEmitter<void>();
   constructor(private productService: ProductService) { }
 
-  onSelected() {
-this.productService.productSelected.emit(this.product);
-   // this.productSelected.emit();
-  }
+
   ngOnInit() {
   }
 

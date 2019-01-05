@@ -1,3 +1,6 @@
+import { DataStorageService } from './common/data-storage.service';
+import { ProductService } from './products/product.service';
+import { AppRoutingModule } from './app-routing.modules';
 import { ShoppingListService } from './shopping-list/shopping.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,6 +14,11 @@ import { ProductItemComponent } from './products/product-list/product-item/produ
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropDownDirective } from './common/dropdown.directive';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductStartComponent } from './products/product-start/product-start.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -22,12 +30,18 @@ import { DropDownDirective } from './common/dropdown.directive';
     ProductItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropDownDirective
+    DropDownDirective,
+    ProductStartComponent,
+    ProductEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, ProductService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

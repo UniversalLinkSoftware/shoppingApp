@@ -6,14 +6,13 @@ import { ProductService } from './product.service';
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
-  providers: [ProductService]
-})
+  })
 export class ProductsComponent implements OnInit {
-selectedProduct: Product;
+// selectedProduct: Product;
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.productService.productSelected.subscribe(
-      (product: Product) => {this.selectedProduct = product; });
+    // this.productService.productSelected.subscribe(
+    //   (product: Product) => {this.selectedProduct = product; });
   }
 }

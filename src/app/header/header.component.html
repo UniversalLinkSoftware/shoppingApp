@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Product Display</a>
+    <a class="navbar-brand" routerLink="/">Product Display</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#" (click)="onSelect('products')">Products <span class="sr-only">(current)</span></a>
+            <li routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/products">Products <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shopping List</a>
+            <li routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/shoppinglist">Shopping List</a>
             </li>
         </ul>
         <div class="dropdown" appDropDown>
@@ -18,8 +18,8 @@
               Manage
             </button>
             <div class="dropdown-menu">
-                <button class="dropdown-item" type="button">Action</button>
-                <button class="dropdown-item" type="button">Another action</button>
+                <button class="dropdown-item" type="button" style="cursor: pointer;" (click)="onSaveData()">Save Data</button>
+                <button class="dropdown-item" type="button" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</button>
 
             </div>
         </div>
